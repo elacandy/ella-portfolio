@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Literata:wght@700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fira Sans', Arial, sans-serif;
+  color: #f5f5f5;
+  background: url('/img/ejs-background.png') center/cover no-repeat;
+  line-height: 1.6;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0.5rem 1rem;
+  background: rgba(51, 51, 51, 0.5);
+  gap: 0.5rem;
+  box-sizing: border-box;
+}
+
+.logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.logo img {
+  height: 40px;
+  margin: 0;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  align-items: flex-end;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #f5f5f5;
+  transition: color 0.3s ease;
+  font-weight: normal;
+  display: block;
+  width: 100%;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #f5f5f5;
+  font-weight: lighter;
+}
+
+/* Footer */
+footer {
+  background: rgba(51, 51, 51, 0.5);
+  color: #f5f5f5;
+  padding: 1rem;
+  font-size: 0.9rem;
+  font-family: 'Fira Sans', Arial, sans-serif;
+  opacity: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+}
+
+footer .footer-left,
+footer .footer-right {
+  display: flex;
+  gap: 1rem;
+}
+
+footer .footer-left a,
+footer .footer-right a {
+  color: #f5f5f5;
+  text-decoration: none;
+  font-weight: normal;
+  transition: color 0.3s;
+}
+
+footer .footer-left a:hover,
+footer .footer-left a.active,
+footer .footer-right a:hover,
+footer .footer-right a.active {
+  color: #fff;
+  font-weight: lighter;
+}
+
+
+/* Horizontal Scroll Gallery */
+.gallery-wrapper {
+  position: relative;
+  width: 90%;
+  overflow: hidden;
+  margin: 3rem 0;
+}
+
+.track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 1rem 0;
+}
+
+.track__item {
+  flex: 0 0 auto;
+  width: 300px;
+  height: 300px;
+  scroll-snap-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.track__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+.track__item:nth-child(1) img {
+  transform: scale(1.6);
+  transition: transform 0.3s ease;
+}
+
+.track__item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.track__item a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+
+/* Arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background: rgba(51, 51, 51, 0.7);
+  color: #f5f5f5;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 5px;
+  user-select: none;
+  transition: background 0.3s;
+}
+
+.arrow:hover {
+  background: rgba(51, 51, 51, 1);
+}
+
+.arrow-left {
+  left: -60px;
+}
+
+.arrow-right {
+  right: -60px;
+}
+
+@media (max-width: 768px) {
+  .track__item {
+    width: 200px;
+    height: 200px;
+  }
+  .arrow-left {
+    left: -40px;
+  }
+  .arrow-right {
+    right: -40px;
+  }
+}
+
+
+.cursor-dust {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  pointer-events: none;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  opacity: 0.6;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 9999;
+  animation: fadeParticle 1.2s forwards ease-out;
+}
+
+@keyframes fadeParticle {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--x-offset)), calc(-50% + var(--y-offset))) scale(0.3);
+  }
+}

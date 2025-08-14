@@ -1,0 +1,407 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Literata:wght@700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Fira Sans', Arial, sans-serif;
+    color: #f5f5f5;
+    background: url('/img/ejs-background.png') center/cover no-repeat;
+    line-height: 1.6;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  flex-direction: column;   /* stack logo and links vertically */
+  align-items: flex-end;    /* align everything to the right */
+  padding: 0.5rem 1rem;
+  background: rgba(51, 51, 51, 0.5);
+  gap: 0.5rem;
+  box-sizing: border-box;
+}
+
+.logo {
+  width: 100%;              /* take full width inside nav */
+  display: flex;
+  justify-content: center;  /* center logo image horizontally */
+}
+
+.logo img {
+  height: 40px;
+  margin: 0;                /* reset margin */
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;   /* stack links vertically */
+  gap: 0.5rem;
+  width: 100%;              /* full width of nav container */
+  align-items: flex-end;    /* align links to the right */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #f5f5f5;
+  transition: color 0.3s ease;
+  font-weight: normal;
+  display: block;
+  width: 100%;
+  text-align: right;        /* text aligned right */
+  padding-right: 10px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #f5f5f5;
+  font-weight: lighter;
+}
+
+
+/* first paragraph */
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    gap: 10px;
+  }
+  .text {
+    flex: 1;
+    line-height: 1.6;
+  }
+  img {
+    max-width: 250px;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+  }
+
+
+/* flip cards layout */
+.cards {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 20px;             
+  justify-content: center; 
+  padding: 20px;         
+}
+
+/* flip cards */
+.flip-card {
+  background-color: transparent;
+  width: 182px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  border-radius: 12px;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  box-sizing: border-box; 
+  border-radius: 12px; 
+  overflow: hidden; 
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-back {
+  background-color: rgb(126, 126, 126);
+  color: #f5f5f5;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-front img {
+  width: 182px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.flip-card-back p {
+  font-size: 0.85rem; 
+  padding: 10px; 
+  margin: 0; 
+  line-height: 1.4; 
+}
+
+/* FAQ */
+.FAQ {
+  display: flex;
+  min-height: 400px;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  max-width: 1200px;
+  margin: auto;
+  color: #f5f5f5;
+}
+
+.FAQ-Header {
+  text-align: right;
+  font-family: 'Literata', serif;
+  font-weight: 700;
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  user-select: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.FAQ-Header h1 {
+  font-family: 'Literata', serif;
+  font-weight: 700;
+  font-size: 8vw;
+  margin: 0;
+  color: #f5f5f5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.FAQ-Questions {
+  flex: 1 1 50vw;
+  max-width: 600px;
+  text-align: center;
+}
+
+.FAQ-Questions h2 {
+  font-family: 'Literata', serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+  text-transform: lowercase;
+  color: #f5f5f5;
+}
+
+.FAQ-Questions p {
+  font-weight: 400;
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+/* banner */
+
+.banner {
+  width: 100vw;         
+  height: 200px;  
+  overflow: hidden;        
+  position: relative;
+}
+
+.banner img {
+  width: 100%;    
+  height: auto;          
+  position: absolute;  
+  top: 50%; 
+  left: 0;
+  transform: translateY(-50%); 
+  min-width: 100%;  
+  object-fit: cover; 
+  object-position: center; 
+}
+
+/* blurb of how i love my fans lol */
+.meaningful {
+  max-width: 900px;
+  margin: 20px auto 60px auto;
+  padding: 30px 25px; 
+  color: #f5f5f5;
+  font-family: 'Fira Sans', Arial, sans-serif;
+  line-height: 1.7;
+}
+
+.meaningful p {
+  margin-bottom: 1rem; 
+  font-size: 1rem; 
+}
+
+
+/* XO E */
+
+.xoE {
+  padding-right: 1rem;
+  text-align: right;
+  font-family: 'Literata', serif;
+  font-weight: 700;
+  font-size: 5rem;
+  user-select: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* button */
+
+.button {
+  display: block;  
+  margin: 2rem auto; 
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+  will-change: box-shadow, transform;
+  background: #f5f5f5;
+  box-shadow: 
+    0px 2px 4px rgb(45 35 66 / 40%), 
+    0px 7px 13px -3px rgb(45 35 66 / 30%), 
+    inset 0px -3px 0px #d6d6e7;
+  height: 48px;
+  padding: 0 32px;
+  font-size: 18px;
+  border-radius: 6px;
+  color: #333333;
+  text-decoration: none;
+  text-align: center;
+  line-height: 48px;
+  width: max-content;
+}
+
+/* Footer */
+footer {
+    background: rgba(51,51,51,0.5);
+    color: #f5f5f5;
+    padding: 1rem;
+    font-size: 0.9rem;
+    font-family: 'Fira Sans', Arial, sans-serif;
+    opacity: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+footer .footer-left,
+footer .footer-right {
+    display: flex;
+    gap: 1rem;
+}
+
+footer .footer-left a,
+footer .footer-right a {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-weight: normal;
+    transition: color 0.3s;
+}
+
+footer .footer-left a:hover,
+footer .footer-left a.active,
+footer .footer-right a:hover,
+footer .footer-right a.active {
+    color: #fff;
+    font-weight: light;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .hero {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
+    .hero-text {
+        position: static;
+        transform: none;
+        background: none;
+    }
+}
+
+@media (max-width: 768px) {
+  .FAQ {
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    height: auto;
+    padding-top: 40px;
+  }
+  .FAQ-Header {
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  .FAQ-Header h1 {
+    font-size: 12vw;
+  }
+  .FAQ-Questions {
+    max-width: 90vw;
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .meaningful {
+    padding: 20px 15px;
+    margin: 15px auto 40px auto;
+  }
+  .meaningful p {
+    font-size: 1rem;
+    margin-bottom: 1.3rem;
+  }
+}
+
+.cursor-dust {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 215, 200, 0.5) 50%,
+    rgba(255, 215, 200, 0) 100%);
+  mix-blend-mode: screen;
+  opacity: 0.7;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 9999;
+  animation: fadeParticle 1.2s forwards ease-out;
+}
+
+@keyframes fadeParticle {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--x-offset)), calc(-50% + var(--y-offset))) scale(0.3);
+  }
+}

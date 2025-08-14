@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ella Jade Studios | Work</title>
+  <link rel="stylesheet" href="css/work.css" />
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo">
+      <img src="img/f5f5f5 logo.png" alt="Ella Jade Monogram Logo" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">home</a></li>
+      <li><a href="about.html">about</a></li>
+      <li><a href="work.html">work</a></li>
+      <li><a href="discipline.html">discipline</a></li>
+      <li><a href="contact.html">contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="gallery-wrapper">
+    <button class="arrow arrow-left">&#8592;</button>
+    <ul class="track">
+      <li class="track__item">
+        <a href="WildlifeProject.html">
+          <img src="img/wildlife/titlepage.png" alt="">
+        </a>
+      </li>
+      <li class="track__item">
+        <a href="#">
+          <img src="img/art pics/event.jpg" alt="">
+        </a>
+      </li>
+      <li class="track__item">
+        <a href="#">
+          <img src="img/art pics/love pants.jpeg" alt="">
+        </a>
+      </li>
+      <li class="track__item">
+        <a href="#">
+          <img src="img/art pics/reddress.jpeg" alt="">
+        </a>
+      </li>
+      <li class="track__item">
+        <a href="#">
+          <img src="img/art pics/shinLeg.jpeg" alt="">
+        </a>
+      </li>
+      <li class="track__item">
+        <a href="#">
+          <img src="img/art pics/shane.jpeg" alt="">
+        </a>
+      </li>
+    </ul>
+    <button class="arrow arrow-right">&#8594;</button>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-left">
+    <a href="#" class="logo">
+      <img src="img/f5f5f5 logo.png" alt="Ella Jade Monogram Logo" />
+    </a>
+  </div>
+  <div class="footer-right">
+    <a href="https://www.linkedin.com/in/ellajade/" target="_blank" rel="noopener">LINKEDIN</a>
+    <a href="mailto:ellajade.connect@icloud.com" target="_blank" rel="noopener">EMAIL</a>
+    <a href="https://www.instagram.com/ellajadestudios/" target="_blank" rel="noopener">INSTAGRAM</a>
+    <a href="https://www.tiktok.com/@ellajadestudios" target="_blank" rel="noopener">TIKTOK</a>
+  </div>
+</footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // ------------------------
+  // GALLERY SCROLL SCRIPT
+  // ------------------------
+  const track = document.querySelector('.track');
+  const leftBtn = document.querySelector('.arrow-left');
+  const rightBtn = document.querySelector('.arrow-right');
+
+  let autoScroll;
+  let speed = 1;
+
+  function startAutoScroll() {
+    autoScroll = setInterval(() => {
+      track.scrollLeft += speed;
+      if(track.scrollLeft >= track.scrollWidth / 2) {
+        track.scrollLeft = 0;
+      }
+    }, 20);
+  }
+
+  function stopAutoScroll() {
+    clearInterval(autoScroll);
+  }
+
+  leftBtn.addEventListener('click', () => {
+    stopAutoScroll();
+    track.scrollBy({ left: -300, behavior: 'smooth' });
+    setTimeout(startAutoScroll, 5000);
+  });
+
+  rightBtn.addEventListener('click', () => {
+    stopAutoScroll();
+    track.scrollBy({ left: 300, behavior: 'smooth' });
+    setTimeout(startAutoScroll, 5000);
+  });
+
+  track.addEventListener('mouseenter', stopAutoScroll);
+  track.addEventListener('mouseleave', startAutoScroll);
+
+  startAutoScroll();
+
+  // ------------------------
+  // FAIRY DUST CURSOR SCRIPT
+  // ------------------------
+  if (window.matchMedia("(pointer:fine)").matches) {
+    document.addEventListener("mousemove", e => {
+      for (let i = 0; i < 2; i++) {
+        const dust = document.createElement("div");
+        dust.className = "cursor-dust";
+
+        const xOffset = (Math.random() - 0.5) * 30;
+        const yOffset = (Math.random() - 0.5) * 30;
+
+        dust.style.setProperty('--x-offset', `${xOffset}px`);
+        dust.style.setProperty('--y-offset', `${yOffset}px`);
+
+        const colors = [
+          'rgba(255,255,255,0.8)',
+          'rgba(255,215,200,0.5)',
+          'rgba(255,182,193,0.4)'
+        ];
+        dust.style.background = `radial-gradient(circle, ${colors[Math.floor(Math.random()*colors.length)]} 0%, rgba(255,255,255,0) 70%)`;
+
+        dust.style.left = `${e.clientX}px`;
+        dust.style.top = `${e.clientY}px`;
+
+        document.body.appendChild(dust);
+
+        setTimeout(() => dust.remove(), 1200);
+      }
+    });
+  }
+
+});
+</script>
+
+
+</body>
+</html>
